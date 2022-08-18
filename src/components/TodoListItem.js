@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
+import '../styles/ListItem.css'
 
 const TodoListItem = ({ todo, deleteTodo, startEditing, finishEditing }) => {
-    
-    const [todoValue, setTodoValue] = useState(todo.value);
-
+    let TodoValue = todo.value;
     const deleteItem = () => {
         deleteTodo(todo.id);
     }
@@ -13,13 +12,12 @@ const TodoListItem = ({ todo, deleteTodo, startEditing, finishEditing }) => {
     }
 
     const changeTodoValue = e => {
-        setTodoValue(e.target.value);
+        TodoValue = e.target.value;
     }
 
     const finishEdit = () => {
-
-        if(todoValue.trim() !== "") {
-            todo.value = todoValue.trim();
+        if(TodoValue.trim()) {
+            todo.value = TodoValue.trim();
             todo.isEditing = false;
             finishEditing(todo);
         }
@@ -30,7 +28,7 @@ const TodoListItem = ({ todo, deleteTodo, startEditing, finishEditing }) => {
         <li className="list">
             {todo.isEditing ? (
                 <>
-                    <textarea className="editTask" defaultValue={todoValue} onChange={changeTodoValue}></textarea>
+                    <textarea className="editTask" defaultValue={TodoValue} onChange={changeTodoValue}></textarea>
                     <button className="saveTask" onClick={finishEdit}>Save</button>
                 </>
 
