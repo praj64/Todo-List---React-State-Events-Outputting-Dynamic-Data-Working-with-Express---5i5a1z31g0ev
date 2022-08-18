@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import TodoAdd from './TodoAdd';
 import TodoList from './TodoList';
+import '../styles/TodoContainer.css';
 
 function TodoContainer() {
     const [todos, setTodos] = useState([]);
@@ -57,7 +58,7 @@ function TodoContainer() {
 
     return(
         <div>
-            <h1>Todo App</h1>
+            <h1 id="heading">Todo App</h1>
             <TodoAdd addTodo ={addTodo}/>
             <TodoList todos={todos} deleteTodo={deleteTodo} startEditing={startEditing} finishEditing={finishEditing}/>
         </div>
