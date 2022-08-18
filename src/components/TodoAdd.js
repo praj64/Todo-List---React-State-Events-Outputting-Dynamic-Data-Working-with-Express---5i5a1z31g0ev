@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/TodoAdd.css'
 
 function TodoAdd({addTodo}) {
-
-    const [todoValue, setTodoValue] = useState("");
+    let TodoValue = "";
     const submitTodo = () => {
-
-        if(todoValue.trim()) {
-            addTodo(todoValue.trim());
-            setTodoValue("");
+        if(TodoValue.trim()) {
+            addTodo(TodoValue.trim());
+            TodoValue = "";
+            document.getElementById("task").value = "";
         }
     }
 
     const updateTodoValue = e => {
-        setTodoValue(e.target.value)
+        TodoValue = e.target.value;
         
     }
     return (
         <div className="grid-container">
-            <textarea id="task" onChange={updateTodoValue} value={todoValue}></textarea>
+            <textarea id="task" onChange={updateTodoValue} rows="2" cols="20" wrap="soft"></textarea>
             <br/>
             <button id="btn" onClick={submitTodo}>Add New</button>
         </div>
