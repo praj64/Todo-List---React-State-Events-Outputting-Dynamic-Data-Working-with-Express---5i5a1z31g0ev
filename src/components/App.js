@@ -5,7 +5,6 @@ import TodoContainer from "./TodoContainer";
 function App() {
 	return (
 	<div id="main">
-
 		<TodoContainer/>
 	</div>
 	);
